@@ -10,4 +10,4 @@ determined that a modulemap parser written in
 complications with installing and using the repository rules contained in
 [rules_spm](https://github.com/cgrindel/rules_spm).
 
-There are no plans to maintain this project. Feel free to fork it and enhance it.
+There are no plans to maintain this project. Feel free to fork it and enhance it. 😀
