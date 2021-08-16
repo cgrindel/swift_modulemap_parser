@@ -1,0 +1,58 @@
+name: Build
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: macos-11.0
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Output the Bazel Info
+      shell: bash
+      run: |
+        bazelisk info
+
+    - name: Execute Tests
+      shell: bash
+      run: |
+        bazelisk test //... 
+
+    - name: Build Anything Not Tested
+      shell: bash
+      run: |
+        bazelisk build //... 
+
+    - name: Build Simple Example
+      shell: bash
+      run: |
+        cd examples/simple
+        bazelisk test //...
+
+    - name: Build Simple_C Example
+      shell: bash
+      run: |
+        cd examples/simple_c
+        bazelisk test //...
+
+    - name: Build Complex Example
+      shell: bash
+      run: |
+        cd examples/complex
+        bazelisk test //...
+
+    - name: Build Package With Deps Example
+      shell: bash
+      run: |
+        cd examples/package_with_deps
+        bazelisk test //...
+
+    - name: Build Vapor Example
+      shell: bash
+      run: |
+        cd examples/vapor
+        bazelisk test //...
